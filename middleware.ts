@@ -1,6 +1,8 @@
-import { clerkMiddleware } from '@clerk/nextjs/server';
+import { authMiddleware } from '@clerk/nextjs/server';
 
-export default clerkMiddleware()
+export default authMiddleware({
+  publicRoutes: ['/api/webhooks/clerk'], // Specify public routes here
+});
 
 export const config = {
   // The following matcher runs middleware on all routes
